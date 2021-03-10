@@ -12,11 +12,11 @@ It adds security hardening to Apache Tomcat according to [OWASP](https://www.owa
 ## There are two options to take in order to use the image
 1. Docker pull the image by running:
 
-  ```$ docker pull eyaldahari/hardenedtomcat```
+  ```$ docker pull joshuawild/docker-tomcat-secured-jre8```
   
   Then run:
   
-  ```$ docker run -it --rm -p 8888:8080 eyaldahari/hardenedtomcat```
+  ```$ docker run -it --rm -p 8888:8080 joshuawild/docker-tomcat-secured-jre8```
 
 2. Build the image yourself:
 
@@ -24,7 +24,7 @@ It adds security hardening to Apache Tomcat according to [OWASP](https://www.owa
 
  - Run the following command:
 
-   ```$ docker build /home/ubuntu/docker_tomcat```
+   ```$ docker build /home/ubuntu/docker-secured-tomcat-jre8```
 
  - Run the following command in order to get the new image id
 
@@ -41,7 +41,3 @@ It adds security hardening to Apache Tomcat according to [OWASP](https://www.owa
 After completing the steps above, a Hardened Tomcat server will be up listenning on port 8888.
 In order to connect to the server, open a browser at the following URL: ```http://docker-host-ip:8888```
 Once the container exits it will be removed automatically by Docker.
-  
-
-## Follw me on
-[twitter](https://twitter.com/EyalDahari) | [linkedin](https://www.linkedin.com/in/eyaldahari) | [blog](https://medium.com/@eyaldahari)
