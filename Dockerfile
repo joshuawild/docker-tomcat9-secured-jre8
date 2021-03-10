@@ -34,7 +34,7 @@ RUN chmod -R 400 /usr/local/tomcat/conf
 RUN useradd tomcat
 
 #Change $tomcat ownership to user tomcat
-RUN chown -R tomcat:tomcat /usr/share/tomcat8/
+RUN chown -R tomcat:tomcat /usr/share/tomcat/
 
 #Change user to new tomcat user
 RUN sudo su tomcat
