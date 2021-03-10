@@ -37,7 +37,7 @@ RUN useradd tomcat
 RUN chown -R tomcat:tomcat /usr/local/tomcat/
 
 #Change user to new tomcat user
-RUN sudo su tomcat
+RUN su tomcat
 
 #Make tomcat avaialble on port 8080
 EXPOSE 8080
