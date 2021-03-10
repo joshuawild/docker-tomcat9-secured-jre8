@@ -563,6 +563,10 @@
 
     <session-config>
         <session-timeout>30</session-timeout>
+        <cookie-config>
+        <http-only>true</http-only>
+        <secure>true</secure>
+        </cookie-config>
     </session-config>
 
 
@@ -4677,4 +4681,17 @@
         <exception-type>java.lang.Throwable</exception-type>
         <location>/errors/error.jsp</location>
     </error-page>
+    <error-page> 
+        <exception-type>java.lang.Exception</exception-type> 
+        <location>/error.jsp</location>
+    </error-page>
+    <security-constraint> 
+    <web-resource-collection> 
+    <web-resource-name>Protected Context</web-resource-name> 
+    <url-pattern>/*</url-pattern>
+    </web-resource-collection> 
+    <user-data-constraint> 
+    <transport-guarantee>CONFIDENTIAL</transport-guarantee> 
+    </user-data-constraint> 
+    </security-constraint>
 </web-app>

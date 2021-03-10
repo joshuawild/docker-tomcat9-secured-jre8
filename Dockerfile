@@ -3,7 +3,7 @@
 ################
 
 FROM tomcat:jre8
-MAINTAINER Eyal Dahari <https://github.com/eyaldahari>
+MAINTAINER Joshua Wild <https://github.com/joshuawild>
 ENV TERM=xterm
 
 #Put more secured server.xml
@@ -18,17 +18,29 @@ ADD server.xml /usr/local/tomcat/conf/
 ADD web.xml /usr/local/tomcat/conf/
 
 #Remove version string from HTTP error messages
-#override ServerInfo.properties in catalina.jar
+#Override ServerInfo.properties in catalina.jar
 RUN mkdir -p /usr/local/tomcat/lib/org/apache/catalina/util
 ADD ServerInfo.properties /usr/local/tomcat/lib/org/apache/catalina/util/ServerInfo.properties
 
-#remove redundant apps and unsecure configurations
+#Remove redundant apps and unsecure configurations
 RUN rm -rf /usr/local/tomcat/webapps/* ; \
     rm -rf /usr/local/tomcat/work/Catalina/localhost/* ; \
     rm -rf /usr/local/tomcat/conf/Catalina/localhost/*
 
-#make tomcat conf dir read only
+#Make tomcat conf dir read only
 RUN chmod -R 400 /usr/local/tomcat/conf
 
+#Create tomcat user 
+RUN useradd tomcat
+
+#Change $tomcat ownership to user tomcat
+RUN chown -R tomcat:tomcat tomcat/
+
+#Change user to new tomcat user
+RUN sudo su tomcat
+
+#Make tomcat avaialble on port 8080
 EXPOSE 8080
-CMD ["catalina.sh", "run"]
+
+#Run tomcat
+CMD ["catalina.sh -security", "run"]
