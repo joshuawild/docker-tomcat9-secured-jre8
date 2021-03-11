@@ -36,11 +36,14 @@ RUN useradd tomcat
 #Change $tomcat ownership to user tomcat
 RUN chown -R tomcat:tomcat /usr/local/tomcat/
 
+#Make tomcat avaialble on port 8080
+EXPOSE 8080
+
 #Change user to new tomcat user
 RUN su tomcat
 
-#Make tomcat avaialble on port 8080
-EXPOSE 8080
+#Change to conf directory
+RUN cd /usr/local/tomcat/conf
 
 #Run tomcat
 CMD ["catalina.sh -security", "run"]
