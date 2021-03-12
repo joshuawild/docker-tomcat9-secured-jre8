@@ -23,9 +23,9 @@ RUN mkdir -p /usr/local/tomcat/lib/org/apache/catalina/util
 ADD ServerInfo.properties /usr/local/tomcat/lib/org/apache/catalina/util/ServerInfo.properties
 
 #Remove redundant apps and unsecure configurations
-RUN rm -rf /usr/local/tomcat/webapps/* ; \
-    rm -rf /usr/local/tomcat/work/Catalina/localhost/* ; \
-    rm -rf /usr/local/tomcat/conf/Catalina/localhost/*
+RUN rm -rf /usr/local/tomcat/webapps/*
+RUN rm -rf /usr/local/tomcat/work/Catalina/localhost/*
+RUN rm -rf /usr/local/tomcat/conf/Catalina/localhost/*
 
 #Make tomcat conf dir read only
 RUN chmod -R 400 /usr/local/tomcat/conf
