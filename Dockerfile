@@ -40,4 +40,4 @@ RUN chown -R tomcat:tomcat /usr/local/tomcat/
 EXPOSE 8080
 
 #Run tomcat
-CMD ["catalina.sh -security", "run"]
+CMD ["catalina.sh", "run"]
