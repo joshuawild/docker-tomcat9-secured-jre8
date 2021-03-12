@@ -12,11 +12,11 @@ It adds security hardening to Apache Tomcat according to [OWASP](https://www.owa
 ## There are two options to take in order to use the image
 1. Docker pull the image by running:
 
-  ```$ docker pull joshuawild/docker-tomcat-secured-jre8```
+  ```$ docker pull joshuawild/docker-tomcat9-secured-jre8```
   
   Then run:
   
-  ```$ docker run -it --rm -p 8888:8080 joshuawild/docker-tomcat-secured-jre8```
+  ```$ docker run -it --rm -p 8888:8080 joshuawild/docker-tomcat9-secured-jre8```
 
 2. Build the image yourself:
 
