@@ -30,17 +30,5 @@ RUN rm -rf /usr/local/tomcat/conf/Catalina/localhost/*
 #Make tomcat conf dir read only
 RUN chmod -R 400 /usr/local/tomcat/conf
 
-#Create tomcat user 
-RUN useradd tomcat
-
-#Change $tomcat ownership to user tomcat
-RUN chown -R tomcat:tomcat /usr/local/tomcat/
-
-#Make tomcat avaialble on port 8080
-EXPOSE 8080
-
-#Change user to non-root Tomcat user
-RUN su tomcat
-
 #Run tomcat
 CMD ["catalina.sh", "run"]
